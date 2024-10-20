@@ -270,7 +270,7 @@ def export_css(filepath, data, record_formatter):
 
     output = "";
     print(os.path.join(base_dir, file_name))
-    os.makedirs(os.path.join(base_dir, "svg"))
+    os.makedirs(os.path.join(base_dir, "svg"), exist_ok=True)
     for record in formatted_data:
         shutil.copyfile(record["svgfile"], os.path.join(base_dir, "svg", f"{record['code']}.svg"))
         output += f'.nf-{record['name']}:before {{ content: url("./svg/{record['code']}.svg"); }}\n'
