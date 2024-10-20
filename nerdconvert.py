@@ -263,6 +263,21 @@ def export_json(filepath, data, record_formatter):
 
     return data
 
+def export_css(filepath, data, record_formatter):
+    import shutil
+    base_dir, file_name = split_path(filepath, '.css', 'nerdfonts')
+    formatted_data = [record_formatter.format(record) for record in data]
+
+    output = "";
+    print(os.path.join(base_dir, file_name))
+    os.makedirs(os.path.join(base_dir, "svg"))
+    for record in formatted_data:
+        shutil.copyfile(record["svgfile"], os.path.join(base_dir, "svg", f"{record['code']}.svg"))
+        output += f'.nf-{record['name']}:before {{ content: url("./svg/{record['code']}.svg"); }}\n'
+    save_file(os.path.join(base_dir, file_name), output)
+
+    return data
+
 
 def export_svg(filepath, data, record_formatter):
     import shutil
@@ -382,11 +397,12 @@ def main():
     record_formatter = RecordFormatter(args.fields)
     
     exporters = {
-            'json': export_json,
-            'csv': export_csv,
-            'svg': export_svg,
-            'es': export_es
-            }
+        'json': export_json,
+        'csv': export_csv,
+        'svg': export_svg,
+        'es': export_es,
+        'css': export_css,
+    }
 
     for output in args.output:
         exporter = exporters.get(output[0], None)
