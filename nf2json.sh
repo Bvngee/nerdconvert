@@ -3,7 +3,8 @@
 
 mkdir -p nerdfonts
 
-curl 'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf' \
+
+curl 'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf' \
     -o nerdfonts/Symbols-2048-em_Nerd_Font_Complete.ttf
 
 curl 'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/css/nerd-fonts-generated.css' \

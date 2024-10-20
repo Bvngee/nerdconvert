@@ -349,7 +349,7 @@ def parse_args():
 
     
     parser.add_argument('-o', '--output',
-        type=str, nargs='+', action='append',
+        type=str, nargs='+', action='append', required=True,
         metavar=('FORMAT', 'FILEPATH'), help='Output')
 
     return parser.parse_args()
@@ -363,9 +363,10 @@ def main():
 
     resources = {
         'fontfile': {
-            'url': base_url+'/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf',
+            # https://github.com/ryanoasis/nerd-fonts/issues/479
+            'url': base_url+'/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf',
             'filepath': os.path.join(args.download,
-                'Symbols-2048-em_Nerd_Font_Complete.ttf')
+                'SymbolsNerdFont-Regular.ttf')
             },
         'cssfile': {
             'url': base_url+'/css/nerd-fonts-generated.css',
