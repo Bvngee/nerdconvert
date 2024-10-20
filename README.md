@@ -1,3 +1,5 @@
+Fork of icalvin102's nerdconvert, with fixed URL's according to [this PR](https://github.com/ryanoasis/nerd-fonts/issues/479) an additional singular css file exporter.
+
 # nerdconvert
 Convert nerd-font-icons to SVG / JSON / ESModule / CSV
 
@@ -45,7 +47,7 @@ The file contains an array of objects with all the extracted [fields](#fields).
 The output option `--output FORMAT FILEPATH` or `-o FORMAT FILEPATH`
 can be used multiple times and specify a export target.
 
-`FORMAT` can be set to `json`, `es`, `csv` or `svg`
+`FORMAT` can be set to `json`, `es`, `css`, `csv` or `svg`
 
 `FILEPATH` specifies a file or directory.
 If no fileextension (`.json | .csv | .svg`) a directory is assumed
